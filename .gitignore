@@ -23,6 +23,7 @@
 hs_err_pid*
 
 #Cosas del netbeans
+/TEST/
 /Proyecto/build/
 /Proyecto/dist/
 /Proyecto/nbproject/private/
