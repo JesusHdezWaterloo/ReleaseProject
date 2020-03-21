@@ -31,3 +31,5 @@ hs_err_pid*
 /Proyecto/build.xml
 /Proyecto/manifest.mf
 Proyecto/release_library/
+Proyecto/cfg.json
+Proyecto/cfg defecto.json
