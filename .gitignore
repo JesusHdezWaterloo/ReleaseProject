@@ -31,4 +31,4 @@ hs_err_pid*
 *.properties
 /Proyecto/build.xml
 /Proyecto/manifest.mf
-Proyecto/release/
+Proyecto/release_library/
