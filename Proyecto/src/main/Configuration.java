@@ -5,9 +5,7 @@
  */
 package main;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import jackson.JACKSON;
-import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -20,6 +18,13 @@ public class Configuration implements Serializable {
 
     private ArrayList<Pair> folders = new ArrayList<>();
     private ArrayList<Pair> files = new ArrayList<>();
+
+    private String gitVersionFolder = "abc\\.git\\refs\\tags";
+
+    private String versionDesdeFile = "version.json";
+    private String versionHastaFile = "version.json";
+
+    private String updateFolder = "123\\App\\updates";
 
     public Configuration() {
         Pair file = new Pair();
@@ -39,12 +44,44 @@ public class Configuration implements Serializable {
 
     public boolean saveToJSON() {
         try {
-            JACKSON.write(Main.jsonFile, new Configuration());
+            JACKSON.write(Main.cfgJsonFile, new Configuration());
         } catch (IOException ex) {
             ex.printStackTrace();
             return false;
         }
         return true;
+    }
+
+    public String getUpdateFolder() {
+        return updateFolder;
+    }
+
+    public void setUpdateFolder(String updateFolder) {
+        this.updateFolder = updateFolder;
+    }
+
+    public String getVersionDesdeFile() {
+        return versionDesdeFile;
+    }
+
+    public void setVersionDesdeFile(String versionDesdeFile) {
+        this.versionDesdeFile = versionDesdeFile;
+    }
+
+    public String getVersionHastaFile() {
+        return versionHastaFile;
+    }
+
+    public void setVersionHastaFile(String versionHastaFile) {
+        this.versionHastaFile = versionHastaFile;
+    }
+
+    public String getGitVersionFolder() {
+        return gitVersionFolder;
+    }
+
+    public void setGitVersionFolder(String gitVersionFolder) {
+        this.gitVersionFolder = gitVersionFolder;
     }
 
     public ArrayList<Pair> getFolders() {
