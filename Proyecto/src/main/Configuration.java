@@ -24,6 +24,8 @@ public class Configuration implements Serializable {
     private String versionDesdeFile = "version.json";
     private String versionHastaFile = "version.json";
 
+    private boolean doUpdate = true;
+
     private String updateFolder = "123\\App\\updates";
 
     private String updateProjectLibFolder = "C:\\Users\\Yo\\Documents\\GIT Projects\\UpdateMeca\\App\\updates\\Proyecto\\dist\\lib";
@@ -60,6 +62,14 @@ public class Configuration implements Serializable {
             return false;
         }
         return true;
+    }
+
+    public boolean isDoUpdate() {
+        return doUpdate;
+    }
+
+    public void setDoUpdate(boolean doUpdate) {
+        this.doUpdate = doUpdate;
     }
 
     public ArrayList<Pair> getUpdateFolders() {
