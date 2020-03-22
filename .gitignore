@@ -21,3 +21,17 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+#Cosas del netbeans
+/Proyecto/build/
+/Proyecto/dist/
+/Proyecto/nbproject/private/
+/Proyecto/nbproject/
+*.properties
+/Proyecto/build.xml
+/Proyecto/manifest.mf
+release_library/
+Proyecto/cfg.json
+Proyecto/cfg defecto.json
+Proyecto/123
+Launch4j/
