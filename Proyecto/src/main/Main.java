@@ -5,6 +5,7 @@
  */
 package main;
 
+import others.SemanticVersioningModel;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import components.dialog.notification.types._NotificationDialogActionFAIL;
 import components.dialog.notification.types._NotificationDialogActionOK;
@@ -21,7 +22,7 @@ import org.apache.commons.io.FileUtils;
  */
 public class Main {
 
-    public static final File cfgJsonFile = new File(new File("").getAbsolutePath() + File.separator + "cfg.json");
+    public static final File cfgJsonFile = new File(new File("").getAbsolutePath() + File.separator + "cfg_release_project.json");
     public static Configuration cfg;
 
     private static File update;
@@ -51,6 +52,7 @@ public class Main {
             try {
                 FILE.copy(pair.getDesde(), pair.getHasta());
             } catch (Exception e) {
+                e.printStackTrace();
                 new _NotificationDialogActionFAIL("Error copiando la carpeta.");
             }
         }
@@ -60,6 +62,7 @@ public class Main {
             try {
                 FILE.copy(pair.getDesde(), pair.getHasta());
             } catch (Exception e) {
+                e.printStackTrace();
                 new _NotificationDialogActionFAIL("Error copiando el fichero.");
             }
         }
@@ -69,9 +72,11 @@ public class Main {
 
         copyVersion();
 
-        createUpdateApp();
+        if (cfg.isDoUpdate()) {
+            createUpdateApp();
 
-        createUpdate();
+            createUpdate();
+        }
     }
 
     private static void compileJar(String config) throws IOException, InterruptedException {
@@ -88,9 +93,9 @@ public class Main {
      */
     private static String getLatestVersion() {
         String versions[] = new File(cfg.getGitVersionFolder()).list();
-        SemanticVersioning c[] = new SemanticVersioning[versions.length];
+        SemanticVersioningModel c[] = new SemanticVersioningModel[versions.length];
         for (int i = 0; i < c.length; i++) {
-            c[i] = new SemanticVersioning(versions[i]);
+            c[i] = new SemanticVersioningModel(versions[i]);
         }
 
         Arrays.sort(c);
@@ -128,6 +133,7 @@ public class Main {
                 try {
                     FILE.copy(pair.getDesde(), app.getAbsolutePath());
                 } catch (Exception e) {
+                    e.printStackTrace();
                     new _NotificationDialogActionFAIL("Error copiando la carpeta.");
                 }
             }
@@ -137,6 +143,7 @@ public class Main {
                 try {
                     FILE.copy(pair.getDesde(), app.getAbsolutePath());
                 } catch (Exception e) {
+                    e.printStackTrace();
                     new _NotificationDialogActionFAIL("Error copiando el fichero.");
                 }
             }
@@ -163,6 +170,7 @@ public class Main {
                 try {
                     FILE.copy(pair.getDesde(), cfg.getUpdateFolder());
                 } catch (Exception e) {
+                    e.printStackTrace();
                     new _NotificationDialogActionFAIL("Error copiando la carpeta.");
                 }
             }
@@ -172,6 +180,7 @@ public class Main {
                 try {
                     FILE.copy(pair.getDesde(), cfg.getUpdateFolder());
                 } catch (Exception e) {
+                    e.printStackTrace();
                     new _NotificationDialogActionFAIL("Error copiando el fichero.");
                 }
             }
