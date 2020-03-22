@@ -14,7 +14,7 @@ import jackson.JACKSON;
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
-import org.apache.commons.io.FileUtils;
+import others.ExceptionHandlerUtil;
 
 /**
  *
@@ -23,6 +23,7 @@ import org.apache.commons.io.FileUtils;
 public class Main {
 
     public static final File cfgJsonFile = new File(new File("").getAbsolutePath() + File.separator + "cfg_release_project.json");
+    public static final File errorJsonFile = new File(new File("").getAbsolutePath() + File.separator + "error_release_library.json");
     public static Configuration cfg;
 
     private static File update;
@@ -52,7 +53,7 @@ public class Main {
             try {
                 FILE.copy(pair.getDesde(), pair.getHasta());
             } catch (Exception e) {
-                e.printStackTrace();
+                ExceptionHandlerUtil.saveException(errorJsonFile, e);
                 new _NotificationDialogActionFAIL("Error copiando la carpeta.");
             }
         }
@@ -62,7 +63,7 @@ public class Main {
             try {
                 FILE.copy(pair.getDesde(), pair.getHasta());
             } catch (Exception e) {
-                e.printStackTrace();
+                ExceptionHandlerUtil.saveException(errorJsonFile, e);
                 new _NotificationDialogActionFAIL("Error copiando el fichero.");
             }
         }
@@ -115,7 +116,7 @@ public class Main {
 
             FILE.copy(verDesde.getAbsolutePath(), cfg.getVersionHastaFile());//la copia al nuevo lugar
         } catch (Exception e) {
-            e.printStackTrace();
+            ExceptionHandlerUtil.saveException(errorJsonFile, e);
             new _NotificationDialogActionFAIL("Error configurando versión.");
         }
     }
@@ -133,7 +134,7 @@ public class Main {
                 try {
                     FILE.copy(pair.getDesde(), app.getAbsolutePath());
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    ExceptionHandlerUtil.saveException(errorJsonFile, e);
                     new _NotificationDialogActionFAIL("Error copiando la carpeta.");
                 }
             }
@@ -143,7 +144,7 @@ public class Main {
                 try {
                     FILE.copy(pair.getDesde(), app.getAbsolutePath());
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    ExceptionHandlerUtil.saveException(errorJsonFile, e);
                     new _NotificationDialogActionFAIL("Error copiando el fichero.");
                 }
             }
@@ -158,35 +159,30 @@ public class Main {
             FILE.copy(cfg.getUpdateProjectSQLFile(), update.getAbsolutePath());
 
         } catch (Exception e) {
-            e.printStackTrace();
+            ExceptionHandlerUtil.saveException(errorJsonFile, e);
             new _NotificationDialogActionFAIL("Error creando el update.");
         }
     }
 
     private static void createUpdate() {
-        try {
-            //copia carpetas
-            for (Pair pair : cfg.getUpdateFolders()) {
-                try {
-                    FILE.copy(pair.getDesde(), cfg.getUpdateFolder());
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    new _NotificationDialogActionFAIL("Error copiando la carpeta.");
-                }
+        //copia carpetas
+        for (Pair pair : cfg.getUpdateFolders()) {
+            try {
+                FILE.copy(pair.getDesde(), cfg.getUpdateFolder());
+            } catch (Exception e) {
+                ExceptionHandlerUtil.saveException(errorJsonFile, e);
+                new _NotificationDialogActionFAIL("Error copiando la carpeta.");
             }
+        }
 
-            //copia ficheros
-            for (Pair pair : cfg.getUpdateFiles()) {
-                try {
-                    FILE.copy(pair.getDesde(), cfg.getUpdateFolder());
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    new _NotificationDialogActionFAIL("Error copiando el fichero.");
-                }
+        //copia ficheros
+        for (Pair pair : cfg.getUpdateFiles()) {
+            try {
+                FILE.copy(pair.getDesde(), cfg.getUpdateFolder());
+            } catch (Exception e) {
+                ExceptionHandlerUtil.saveException(errorJsonFile, e);
+                new _NotificationDialogActionFAIL("Error copiando el fichero.");
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-            new _NotificationDialogActionFAIL("Error creando el UpdateProject.");
         }
     }
 
