@@ -26,6 +26,16 @@ public class Configuration implements Serializable {
 
     private String updateFolder = "123\\App\\updates";
 
+    private String updateProjectLibFolder = "C:\\Users\\Yo\\Documents\\GIT Projects\\UpdateMeca\\App\\updates\\Proyecto\\dist\\lib";
+    private String updateProjectConfigFile = "C:\\Users\\Yo\\Documents\\GIT Projects\\UpdateMeca\\App\\updates\\Proyecto\\cfg.json";
+    private String updateProjectSQLFile = "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\Proyecto\\db_update_queries.txt";
+    private String launch4jJar = "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\App\\configuration.xml";
+    private String mainJarXMLConfigFile = "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\App\\configuration.xml";
+    private String compiledEXE = "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\App\\Meca.exe";
+
+    private ArrayList<Pair> updateFolders = new ArrayList<>();
+    private ArrayList<Pair> updateFiles = new ArrayList<>();
+
     public Configuration() {
         Pair file = new Pair();
         file.setDesde("123");
@@ -50,6 +60,70 @@ public class Configuration implements Serializable {
             return false;
         }
         return true;
+    }
+
+    public ArrayList<Pair> getUpdateFolders() {
+        return updateFolders;
+    }
+
+    public void setUpdateFolders(ArrayList<Pair> updateFolders) {
+        this.updateFolders = updateFolders;
+    }
+
+    public ArrayList<Pair> getUpdateFiles() {
+        return updateFiles;
+    }
+
+    public void setUpdateFiles(ArrayList<Pair> updateFiles) {
+        this.updateFiles = updateFiles;
+    }
+
+    public String getCompiledEXE() {
+        return compiledEXE;
+    }
+
+    public void setCompiledEXE(String compiledEXE) {
+        this.compiledEXE = compiledEXE;
+    }
+
+    public String getMainJarXMLConfigFile() {
+        return mainJarXMLConfigFile;
+    }
+
+    public void setMainJarXMLConfigFile(String mainJarXMLConfigFile) {
+        this.mainJarXMLConfigFile = mainJarXMLConfigFile;
+    }
+
+    public String getLaunch4jJar() {
+        return launch4jJar;
+    }
+
+    public void setLaunch4jJar(String launch4jJar) {
+        this.launch4jJar = launch4jJar;
+    }
+
+    public String getUpdateProjectSQLFile() {
+        return updateProjectSQLFile;
+    }
+
+    public void setUpdateProjectSQLFile(String updateProjectSQLFile) {
+        this.updateProjectSQLFile = updateProjectSQLFile;
+    }
+
+    public String getUpdateProjectLibFolder() {
+        return updateProjectLibFolder;
+    }
+
+    public void setUpdateProjectLibFolder(String updateProjectLibFolder) {
+        this.updateProjectLibFolder = updateProjectLibFolder;
+    }
+
+    public String getUpdateProjectConfigFile() {
+        return updateProjectConfigFile;
+    }
+
+    public void setUpdateProjectConfigFile(String updateProjectConfigFile) {
+        this.updateProjectConfigFile = updateProjectConfigFile;
     }
 
     public String getUpdateFolder() {
