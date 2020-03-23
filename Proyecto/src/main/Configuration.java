@@ -16,7 +16,6 @@ import java.util.ArrayList;
  */
 public class Configuration implements Serializable {
 
-    private ArrayList<Pair> folders = new ArrayList<>();
     private ArrayList<Pair> files = new ArrayList<>();
 
     private String gitVersionFolder = "abc\\.git\\refs\\tags";
@@ -51,7 +50,6 @@ public class Configuration implements Serializable {
         Pair folder = new Pair();
         folder.setDesde("123");
         folder.setHasta("123");
-        folders.add(folder);
     }
 
     public boolean saveToJSON() {
@@ -166,14 +164,6 @@ public class Configuration implements Serializable {
 
     public void setGitVersionFolder(String gitVersionFolder) {
         this.gitVersionFolder = gitVersionFolder;
-    }
-
-    public ArrayList<Pair> getFolders() {
-        return folders;
-    }
-
-    public void setFolders(ArrayList<Pair> folders) {
-        this.folders = folders;
     }
 
     public ArrayList<Pair> getFiles() {

@@ -1,11 +1,4 @@
 {
-  "folders" : [ {
-    "desde" : "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\Proyecto\\dist\\lib",
-    "hasta" : "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\App"
-  }, {
-    "desde" : "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\Proyecto\\resources",
-    "hasta" : "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\App"
-  } ],
   "files" : [ {
     "desde" : "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\Proyecto\\cfg_meca.json",
     "hasta" : "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\App"
@@ -14,6 +7,12 @@
     "hasta" : "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\App"
   }, {
     "desde" : "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\Proyecto\\dist\\Meca.jar",
+    "hasta" : "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\App"
+  }, {
+    "desde" : "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\Proyecto\\dist\\lib",
+    "hasta" : "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\App"
+  }, {
+    "desde" : "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\Proyecto\\resources",
     "hasta" : "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\App"
   } ],
   "gitVersionFolder" : "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\.git\\refs\\tags",

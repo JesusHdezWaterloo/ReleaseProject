@@ -48,16 +48,6 @@ public class Main {
     }
 
     private static void desplegarRelease() throws IOException, InterruptedException {
-        //copia carpetas
-        for (Pair pair : cfg.getFolders()) {
-            try {
-                FILE.copy(pair.getDesde(), pair.getHasta());
-            } catch (Exception e) {
-                ExceptionHandlerUtil.saveException(errorJsonFile, e);
-                new _NotificationDialogActionFAIL("Error copiando la carpeta.");
-            }
-        }
-
         //copia ficheros
         for (Pair pair : cfg.getFiles()) {
             try {
@@ -128,16 +118,6 @@ public class Main {
 
             File app = new File(update, "App");
             app.mkdirs();
-
-            //copia carpetas
-            for (Pair pair : cfg.getFolders()) {
-                try {
-                    FILE.copy(pair.getDesde(), app.getAbsolutePath());
-                } catch (Exception e) {
-                    ExceptionHandlerUtil.saveException(errorJsonFile, e);
-                    new _NotificationDialogActionFAIL("Error copiando la carpeta.");
-                }
-            }
 
             //copia ficheros
             for (Pair pair : cfg.getFiles()) {
