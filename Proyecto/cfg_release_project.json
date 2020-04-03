@@ -1,19 +1,19 @@
 {
   "files" : [ {
-    "desde" : "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\Proyecto\\cfg_meca.json",
-    "hasta" : "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\App"
+    "a" : "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\Proyecto\\cfg_meca.json",
+    "b" : "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\App"
   }, {
-    "desde" : "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\Proyecto\\personalization.json",
-    "hasta" : "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\App"
+    "a" : "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\Proyecto\\personalization.json",
+    "b" : "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\App"
   }, {
-    "desde" : "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\Proyecto\\dist\\Meca.jar",
-    "hasta" : "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\App"
+    "a" : "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\Proyecto\\dist\\Meca.jar",
+    "b" : "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\App"
   }, {
-    "desde" : "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\Proyecto\\dist\\lib",
-    "hasta" : "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\App"
+    "a" : "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\Proyecto\\dist\\lib",
+    "b" : "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\App"
   }, {
-    "desde" : "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\Proyecto\\resources",
-    "hasta" : "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\App"
+    "a" : "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\Proyecto\\resources",
+    "b" : "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\App"
   } ],
   "gitVersionFolder" : "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\.git\\refs\\tags",
   "versionDesdeFile" : "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\Proyecto\\version.json",
@@ -27,14 +27,14 @@
   "mainJarXMLConfigFile" : "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\App\\configuration_main.xml",
   "compiledEXE" : "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\App\\Meca.exe",
   "updateFolders" : [ {
-    "desde" : "C:\\Users\\Yo\\Documents\\GIT Projects\\JavaLibrariesRepo\\Update\\lib",
-    "hasta" : "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\App\\updates"
+    "a" : "C:\\Users\\Yo\\Documents\\GIT Projects\\JavaLibrariesRepo\\Update\\lib",
+    "b" : "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\App\\updates"
   } ],
   "updateFiles" : [ {
-    "desde" : "C:\\Users\\Yo\\Documents\\GIT Projects\\JavaLibrariesRepo\\Update\\cfg_update.json",
-    "hasta" : "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\App\\updates"
+    "a" : "C:\\Users\\Yo\\Documents\\GIT Projects\\JavaLibrariesRepo\\Update\\cfg_update.json",
+    "b" : "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\App\\updates"
   }, {
-    "desde" : "C:\\Users\\Yo\\Documents\\GIT Projects\\JavaLibrariesRepo\\Update\\UpdateProject.exe",
-    "hasta" : "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\App\\updates"
+    "a" : "C:\\Users\\Yo\\Documents\\GIT Projects\\JavaLibrariesRepo\\Update\\UpdateProject.exe",
+    "b" : "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\App\\updates"
   } ]
 }

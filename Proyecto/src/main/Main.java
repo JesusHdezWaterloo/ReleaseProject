@@ -5,7 +5,6 @@
  */
 package main;
 
-import others.SemanticVersioningModel;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import components.dialog.notification.types._NotificationDialogActionFAIL;
 import components.dialog.notification.types._NotificationDialogActionOK;
@@ -15,6 +14,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 import others.ExceptionHandlerUtil;
+import others.Pair;
+import others.SemanticVersioningModel;
 
 /**
  *
@@ -49,9 +50,9 @@ public class Main {
 
     private static void desplegarRelease() throws IOException, InterruptedException {
         //copia ficheros
-        for (Pair pair : cfg.getFiles()) {
+        for (Pair<String> pair : cfg.getFiles()) {
             try {
-                FILE.copy(pair.getDesde(), pair.getHasta());
+                FILE.copy(pair.getA(), pair.getB());
             } catch (Exception e) {
                 ExceptionHandlerUtil.saveException(errorJsonFile, e);
                 new _NotificationDialogActionFAIL("Error copiando el fichero.");
@@ -120,9 +121,9 @@ public class Main {
             app.mkdirs();
 
             //copia ficheros
-            for (Pair pair : cfg.getFiles()) {
+            for (Pair<String> pair : cfg.getFiles()) {
                 try {
-                    FILE.copy(pair.getDesde(), app.getAbsolutePath());
+                    FILE.copy(pair.getA(), app.getAbsolutePath());
                 } catch (Exception e) {
                     ExceptionHandlerUtil.saveException(errorJsonFile, e);
                     new _NotificationDialogActionFAIL("Error copiando el fichero.");
@@ -146,9 +147,9 @@ public class Main {
 
     private static void createUpdate() {
         //copia carpetas
-        for (Pair pair : cfg.getUpdateFolders()) {
+        for (Pair<String> pair : cfg.getUpdateFolders()) {
             try {
-                FILE.copy(pair.getDesde(), cfg.getUpdateFolder());
+                FILE.copy(pair.getA(), cfg.getUpdateFolder());
             } catch (Exception e) {
                 ExceptionHandlerUtil.saveException(errorJsonFile, e);
                 new _NotificationDialogActionFAIL("Error copiando la carpeta.");
@@ -156,9 +157,9 @@ public class Main {
         }
 
         //copia ficheros
-        for (Pair pair : cfg.getUpdateFiles()) {
+        for (Pair<String> pair : cfg.getUpdateFiles()) {
             try {
-                FILE.copy(pair.getDesde(), cfg.getUpdateFolder());
+                FILE.copy(pair.getA(), cfg.getUpdateFolder());
             } catch (Exception e) {
                 ExceptionHandlerUtil.saveException(errorJsonFile, e);
                 new _NotificationDialogActionFAIL("Error copiando el fichero.");

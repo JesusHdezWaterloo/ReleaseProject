@@ -9,6 +9,7 @@ import jackson.JACKSON;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
+import others.Pair;
 
 /**
  *
@@ -34,22 +35,14 @@ public class Configuration implements Serializable {
     private String mainJarXMLConfigFile = "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\App\\configuration.xml";
     private String compiledEXE = "C:\\Users\\Yo\\Documents\\GIT Projects\\Meca\\App\\Meca.exe";
 
-    private ArrayList<Pair> updateFolders = new ArrayList<>();
-    private ArrayList<Pair> updateFiles = new ArrayList<>();
+    private ArrayList<Pair<String>> updateFolders = new ArrayList<>();
+    private ArrayList<Pair<String>> updateFiles = new ArrayList<>();
 
     public Configuration() {
-        Pair file = new Pair();
-        file.setDesde("123");
-        file.setHasta("123");
-        Pair file2 = new Pair();
-        file2.setDesde("123");
-        file2.setHasta("123");
+        Pair file = new Pair("123", "123");
+        Pair file2 = new Pair("123", "123");
         files.add(file);
         files.add(file2);
-
-        Pair folder = new Pair();
-        folder.setDesde("123");
-        folder.setHasta("123");
     }
 
     public boolean saveToJSON() {
@@ -70,19 +63,19 @@ public class Configuration implements Serializable {
         this.doUpdate = doUpdate;
     }
 
-    public ArrayList<Pair> getUpdateFolders() {
+    public ArrayList<Pair<String>> getUpdateFolders() {
         return updateFolders;
     }
 
-    public void setUpdateFolders(ArrayList<Pair> updateFolders) {
+    public void setUpdateFolders(ArrayList<Pair<String>> updateFolders) {
         this.updateFolders = updateFolders;
     }
 
-    public ArrayList<Pair> getUpdateFiles() {
+    public ArrayList<Pair<String>> getUpdateFiles() {
         return updateFiles;
     }
 
-    public void setUpdateFiles(ArrayList<Pair> updateFiles) {
+    public void setUpdateFiles(ArrayList<Pair<String>> updateFiles) {
         this.updateFiles = updateFiles;
     }
 
