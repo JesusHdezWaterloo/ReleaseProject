@@ -1,13 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package main;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import components.dialog.notification.types._NotificationDialogActionFAIL;
-import components.dialog.notification.types._NotificationDialogActionOK;
+import bundles.notification.types.NotificationDialogActionFAIL;
+import bundles.notification.types.NotificationDialogActionOK;
 import exceptions.ExceptionHandlerUtil;
 import file.FILE;
 import jackson.JACKSON;
@@ -18,8 +12,8 @@ import others.Pair;
 import others.SemanticVersioningModel;
 
 /**
- *
- * @author Yo
+ * 
+ * @author Jesús Hernández Barrios (jhernandezb96@gmail.com)
  */
 public class Main {
 
@@ -34,16 +28,16 @@ public class Main {
         //cfg.saveToJSON();
 
         try {
-            cfg = new ObjectMapper().readValue(cfgJsonFile, Configuration.class);
+            cfg = JACKSON.read(cfgJsonFile, Configuration.class);
         } catch (IOException e) {
             e.printStackTrace();
-            new _NotificationDialogActionFAIL("Error en configuración, usando default.");
+            new NotificationDialogActionFAIL("Error en configuración, usando default.");
             cfg = new Configuration();
             cfg.saveToJSON();
         }
         desplegarRelease();
 
-        new _NotificationDialogActionOK("Terminado el despliegue.");
+        new NotificationDialogActionOK("Terminado el despliegue.");
         Thread.sleep(3 * 1000);
         System.exit(0);
     }
@@ -55,7 +49,7 @@ public class Main {
                 FILE.copy(pair.getA(), pair.getB());
             } catch (Exception e) {
                 ExceptionHandlerUtil.saveException(errorJsonFile, e);
-                new _NotificationDialogActionFAIL("Error copiando el fichero.");
+                new NotificationDialogActionFAIL("Error copiando el fichero.");
             }
         }
 
@@ -108,7 +102,7 @@ public class Main {
             FILE.copy(verDesde.getAbsolutePath(), cfg.getVersionHastaFile());//la copia al nuevo lugar
         } catch (Exception e) {
             ExceptionHandlerUtil.saveException(errorJsonFile, e);
-            new _NotificationDialogActionFAIL("Error configurando versión.");
+            new NotificationDialogActionFAIL("Error configurando versión.");
         }
     }
 
@@ -126,7 +120,7 @@ public class Main {
                     FILE.copy(pair.getA(), app.getAbsolutePath());
                 } catch (Exception e) {
                     ExceptionHandlerUtil.saveException(errorJsonFile, e);
-                    new _NotificationDialogActionFAIL("Error copiando el fichero.");
+                    new NotificationDialogActionFAIL("Error copiando el fichero.");
                 }
             }
 
@@ -141,7 +135,7 @@ public class Main {
 
         } catch (Exception e) {
             ExceptionHandlerUtil.saveException(errorJsonFile, e);
-            new _NotificationDialogActionFAIL("Error creando el update.");
+            new NotificationDialogActionFAIL("Error creando el update.");
         }
     }
 
@@ -152,7 +146,7 @@ public class Main {
                 FILE.copy(pair.getA(), cfg.getUpdateFolder());
             } catch (Exception e) {
                 ExceptionHandlerUtil.saveException(errorJsonFile, e);
-                new _NotificationDialogActionFAIL("Error copiando la carpeta.");
+                new NotificationDialogActionFAIL("Error copiando la carpeta.");
             }
         }
 
@@ -162,7 +156,7 @@ public class Main {
                 FILE.copy(pair.getA(), cfg.getUpdateFolder());
             } catch (Exception e) {
                 ExceptionHandlerUtil.saveException(errorJsonFile, e);
-                new _NotificationDialogActionFAIL("Error copiando el fichero.");
+                new NotificationDialogActionFAIL("Error copiando el fichero.");
             }
         }
     }
