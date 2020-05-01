@@ -1,7 +1,6 @@
 package main;
 
-import bundles.notification.types.NotificationDialogActionFAIL;
-import bundles.notification.types.NotificationDialogActionOK;
+import bundles.toast.TOAST;
 import exceptions.ExceptionHandlerUtil;
 import file.FILE;
 import jackson.JACKSON;
@@ -31,13 +30,12 @@ public class Main {
             cfg = JACKSON.read(cfgJsonFile, Configuration.class);
         } catch (IOException e) {
             e.printStackTrace();
-            new NotificationDialogActionFAIL("Error en configuración, usando default.");
+            TOAST.makeNotificationFAIL("Error en configuración, usando default.");
             cfg = new Configuration();
             cfg.saveToJSON();
         }
         desplegarRelease();
-
-        new NotificationDialogActionOK("Terminado el despliegue.");
+        TOAST.makeNotificationOK("Terminado el despliegue.");
         Thread.sleep(3 * 1000);
         System.exit(0);
     }
@@ -49,7 +47,7 @@ public class Main {
                 FILE.copy(pair.getA(), pair.getB());
             } catch (Exception e) {
                 ExceptionHandlerUtil.saveException(errorJsonFile, e);
-                new NotificationDialogActionFAIL("Error copiando el fichero.");
+                TOAST.makeNotificationFAIL("Error copiando el fichero.");
             }
         }
 
@@ -102,7 +100,7 @@ public class Main {
             FILE.copy(verDesde.getAbsolutePath(), cfg.getVersionHastaFile());//la copia al nuevo lugar
         } catch (Exception e) {
             ExceptionHandlerUtil.saveException(errorJsonFile, e);
-            new NotificationDialogActionFAIL("Error configurando versión.");
+            TOAST.makeNotificationFAIL("Error configurando versión.");
         }
     }
 
@@ -120,7 +118,7 @@ public class Main {
                     FILE.copy(pair.getA(), app.getAbsolutePath());
                 } catch (Exception e) {
                     ExceptionHandlerUtil.saveException(errorJsonFile, e);
-                    new NotificationDialogActionFAIL("Error copiando el fichero.");
+                    TOAST.makeNotificationFAIL("Error copiando el fichero.");
                 }
             }
 
@@ -135,7 +133,7 @@ public class Main {
 
         } catch (Exception e) {
             ExceptionHandlerUtil.saveException(errorJsonFile, e);
-            new NotificationDialogActionFAIL("Error creando el update.");
+            TOAST.makeNotificationFAIL("Error creando el update.");
         }
     }
 
@@ -146,7 +144,7 @@ public class Main {
                 FILE.copy(pair.getA(), cfg.getUpdateFolder());
             } catch (Exception e) {
                 ExceptionHandlerUtil.saveException(errorJsonFile, e);
-                new NotificationDialogActionFAIL("Error copiando la carpeta.");
+                TOAST.makeNotificationFAIL("Error copiando la carpeta.");
             }
         }
 
@@ -156,7 +154,7 @@ public class Main {
                 FILE.copy(pair.getA(), cfg.getUpdateFolder());
             } catch (Exception e) {
                 ExceptionHandlerUtil.saveException(errorJsonFile, e);
-                new NotificationDialogActionFAIL("Error copiando el fichero.");
+                TOAST.makeNotificationFAIL("Error copiando el fichero.");
             }
         }
     }
