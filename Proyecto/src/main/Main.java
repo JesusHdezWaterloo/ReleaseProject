@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import others.Pair;
 import others.SemanticVersioningModel;
+import personalization.PersonalizationMaterial;
 
 /**
  * 
@@ -36,7 +37,7 @@ public class Main {
         }
         desplegarRelease();
         TOAST.makeNotificationOK("Terminado el despliegue.");
-        Thread.sleep(3 * 1000);
+        Thread.sleep(2 * PersonalizationMaterial.getInstance().getSecondsActive() * 1000);
         System.exit(0);
     }
 
